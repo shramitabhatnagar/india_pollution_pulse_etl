@@ -25,7 +25,7 @@ def safe_datetime(date_str):
         logging.warning(f"Invalid date format '{date_str}': {e}")
         return None
 
-@app.timer_trigger(schedule="0 */0 * * * *", arg_name="mytimer", run_on_startup=True)
+@app.timer_trigger(schedule="0 */* * * 0 *", arg_name="mytimer", run_on_startup=True)
 def PollutionETL(mytimer: func.TimerRequest) -> None:
     logging.info(f"🔥 PollutionETL started at {datetime.utcnow().isoformat()} UTC")
 
